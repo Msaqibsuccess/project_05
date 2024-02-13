@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.305);
+            border-radius: 10px;
+            width: 350px;
+            height: 350px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 10px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-size: 15px;
+
+        }
+
+        #textarea {
+            width: 90%;
+            height: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            color: white;
+            background-color: blue;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .output {
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Vowel Counter</h1>
+        </div>
+
+        <div class="textarea">
+
+            <textarea name="vowelinput" id="textarea" cols="30" rows="10" placeholder="Enter your text"></textarea>
+        </div>
+
+        <div class="count">
+            <button id="count">
+                Calculate Vowels
+            </button>
+        </div>
+        <div id="output"></div>
+
+    </div>
+
+
+    <script>
+
+        const textarea = document.getElementById("textarea");
+        const button = document.getElementById("count");
+        const output = document.getElementById("output");
+
+
+        button.addEventListener('click', function () {
+
+            if (textarea.value === '') {
+                output.innerHTML = 'Please enter some text';
+
+            } else {
+                //aeiou
+                const val = textarea.value;
+                let count = 0;
+                for (var i = 0; i < val.length; i++) {
+                    if (val[i] === 'a' || val[i] === 'e' || val[i] === 'i' || val[i] === 'o' || val[i] === 'u') {
+                        count++;
+                    }
+                }
+                output.innerHTML = `The number of vowels are ${count}`;
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
